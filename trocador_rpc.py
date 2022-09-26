@@ -45,7 +45,7 @@ class Trocador():
     
         elif id == "usuario" and  fila1 != []:
             return fila1.pop(0)
-        elif id == "funcionário" and fila2 != []:
+        elif id == "funcionario" and fila2 != []:
             return fila2.pop(0)
         elif id == "outros" and fila3 != []:
             return fila3.pop(0)

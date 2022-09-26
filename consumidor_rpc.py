@@ -9,21 +9,17 @@ uri = ns.lookup('obj')
 #produtor acessa remotamente SERVIDOR
 acesso = Pyro4.Proxy(uri)
 
-#id = int(input("Id(1,2 ou 3): "))
-#def receber_mensagem():
 
-lista_dest = ["cliente", "funcionario","outros"]
 def consumidor():
-    
-    while True:
-        id = randint(0,2)
+    fila = input("usuario | funcionario | outros: ")
 
-        lista_fan = acesso.receber_mensagem(lista_dest[id])
+    while True:
+        lista_fan = acesso.receber_mensagem(fila)
         if str(type(lista_fan)) == "<class 'list'>" and lista_fan != []:
             for i in lista_fan:
                 print("mensagem recebida: "+i)
         else:
-            msg = acesso.receber_mensagem(lista_dest[id])
+            msg = acesso.receber_mensagem(fila)
             print("mensagem recebida: "+msg)
             if msg == "void":
                 time.sleep(2)

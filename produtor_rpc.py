@@ -32,7 +32,7 @@ def criar_mensagem():
                 print("Fanout enviado!")
             else:
                 acesso.enviar_mensagem(lista_dest[id], mensagem)
-                print("Mensagem para {} enviada!".formata(lista_dest[id]))
+                print("Mensagem para {} enviada!".format(lista_dest[id]))
         time.sleep(2)
         
 
