@@ -11,10 +11,9 @@ uri = ns.lookup('obj')
 acesso = Pyro4.Proxy(uri)
 def status():
     while True:
-        print('\nCalculando...')
-        stt = acesso.status()
+        op = input("\n-t (tamanho das filas)\n-f (filas criadas)\n-c (consumidores)\n-p (consumidores)\n")
+        stt = acesso.status(op)
         print(stt)
-        time.sleep(5)
     
 thread_prod = Thread(target=status)#cria a thread
 thread_prod.start()

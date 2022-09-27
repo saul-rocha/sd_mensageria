@@ -1,6 +1,5 @@
 # Python Remote Objects(Biblioteca python para criação de aplicações que se comuniquem pela rede)
 #python -m Pyro4.naming
-from unicodedata import name
 import Pyro4
 from threading import Thread
 import time
@@ -53,11 +52,13 @@ class Trocador():
         filaFanout.append(mensagem)
         print("<mensagem Fanout encaminhada>: {}\n".format(mensagem))
 
-    def status(self):
-        return "Fila1:{}\nFila2:{}\nFila3:{}\nPilha de Fanout: {}".format(len(fila1),len(fila2),len(fila3), len(filaFanout))
+    def status(self, op):
+        if op == "-f":
+            return "Fila1:{}\nFila2:{}\nFila3:{}\nPilha de Fanout: {}".format(len(fila1),len(fila2),len(fila3), len(filaFanout))
+        elif op == "-c"
 
-
-
+    def gerenciar_filas(self):
+        pass
 
 #Cada fila deve ser mantida por uma Thread.
 
