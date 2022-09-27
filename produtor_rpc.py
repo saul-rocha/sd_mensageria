@@ -13,7 +13,7 @@ acesso = Pyro4.Proxy(uri)
 print('\nConectado')
 
 
-lista_msg = ["olá","tudo bem?", "im Groot", "Se você fosse um peixinho eu seria um beija-flor.", "batatinha quando nasce se espalha pelo chão.", "Lord of the rings better than harry potter."]
+lista_msg = ["olá","tudo bem?", "Muita pressão.", "im Groot.", "Se você fosse um peixinho eu seria um beija-flor.", "batatinha quando nasce se espalha pelo chão.", "Lord of the rings better than harry potter."]
 lista_dest = ["usuario", "funcionario","outros","fanout"]
 def criar_mensagem():
 

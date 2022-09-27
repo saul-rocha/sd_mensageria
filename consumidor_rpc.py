@@ -14,15 +14,11 @@ def consumidor():
     fila = input("usuario | funcionario | outros: ")
 
     while True:
-        lista_fan = acesso.receber_mensagem(fila)
-        if str(type(lista_fan)) == "<class 'list'>" and lista_fan != []:
-            for i in lista_fan:
-                print("mensagem recebida: "+i)
-        else:
-            msg = acesso.receber_mensagem(fila)
-            print("mensagem recebida: "+msg)
-            if msg == "void":
-                time.sleep(2)
+        msg = acesso.receber_mensagem(fila)
+        print("mensagem recebida: "+msg)
+        
+        if msg == "Sem mensagens para receber.":
+            time.sleep(2)
         
 thread_cons = Thread(target=consumidor)#cria a thread
 thread_cons.start()

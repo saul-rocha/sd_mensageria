@@ -37,12 +37,8 @@ class Trocador():
 
     def receber_mensagem(self, id):
         if filaFanout != []:
-            while (filaFanout != []):
-                lista_fan = []
-                item = filaFanout.pop(len(filaFanout)-1)
-                lista_fan.append(item)
-            return lista_fan
-    
+            item = filaFanout.pop(len(filaFanout)-1)
+            return item
         elif id == "usuario" and  fila1 != []:
             return fila1.pop(0)
         elif id == "funcionario" and fila2 != []:
@@ -50,7 +46,7 @@ class Trocador():
         elif id == "outros" and fila3 != []:
             return fila3.pop(0)
         else:
-            return "void"
+            return "Sem mensagens para receber."
         
         
     def Fanout(self, mensagem):
@@ -75,6 +71,8 @@ fila3 = []
 
 # SERVIDOR instancia OBJETO remoto
 objeto = Pyro4.Daemon()
+
+
 
 # SERVIDOR registra OBJETO e faz um vinculo dele em uma porta.
 vinculo = objeto.register(Trocador)
