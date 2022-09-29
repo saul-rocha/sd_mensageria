@@ -9,9 +9,12 @@ uri = ns.lookup('obj')
 
 #produtor acessa remotamente SERVIDOR
 acesso = Pyro4.Proxy(uri)
-
-print('\nCalculando...')
-while True:
-    acesso.status()
-    time.sleep(5)
+def status():
+    while True:
+        op = input("\n-t (tamanho das filas)\n-f (filas criadas)\n-c (consumidores)\n-p (consumidores)\n")
+        stt = acesso.status(op)
+        print(stt)
     
+thread_prod = Thread(target=status)#cria a thread
+thread_prod.start()
+thread_prod.join()
